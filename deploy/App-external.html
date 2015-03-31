@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Milestones by Project</title>
+
+    <script type="text/javascript" src="https://rally1.rallydev.com/apps/2.0/sdk.js"></script>
+
+    <script type="text/javascript">
+        Rally.onReady(function () {
+                Ext.define("CustomApp",{extend:"Rally.app.App",componentCls:"app",launch:function(){var panel=Ext.create("Ext.panel.Panel",{items:[{xtype:"rallyprojectpicker",fieldLabel:"select project",itemId:"proj",margin:10,workspace:this.getContext().getWorkspace()._ref,value:this.getContext().getProject(),listeners:{change:this._onProjectSelected,scope:this}},{xtype:"container",itemId:"gridContainer"}]});this.add(panel)},_onProjectSelected:function(){this.down("rallygrid")&&Ext.ComponentQuery.query("#gridContainer")[0].remove(Ext.ComponentQuery.query("#milestoneGrid")[0],!0),this.down("#gridContainer").add({xtype:"rallygrid",itemId:"milestoneGrid",columnCfgs:["FormattedID","Name"],context:this.getContext(),storeConfig:{model:"milestone",filters:[this._getProjectFilter()]}})},_getProjectFilter:function(){return{property:"TargetProject",operator:"=",value:this.down("#proj").getValue()}}});
+
+            Rally.launchApp('CustomApp', {
+                name:"Milestones by Project",
+	            parentRepos:""
+            });
+
+        });
+    </script>
+
+
+    <style type="text/css">
+        
+    </style>
+</head>
+<body>
+</body>
+</html>
