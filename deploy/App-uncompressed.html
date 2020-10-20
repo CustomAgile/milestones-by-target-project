@@ -2,25 +2,28 @@
 <html>
 <head>
     <title>Milestones by Project</title>
-
-    <script type="text/javascript" src="/apps/2.0/sdk.js"></script>
+    <!--  (c) 2020 Custom Agile.  All Rights Reserved. -->
+    <!--  Build Date: Tue Oct 20 2020 09:42:10 GMT-0400 (Eastern Daylight Time) -->
+    <!--  Version: "0.1.1"-->
+    <!--  Repository: "https:/github.com/CustomAgile/milestones-by-target-project"-->
+    <script type="text/javascript" src="/apps/2.0/sdk-debug.js"></script>
 
     <script type="text/javascript">
         Rally.onReady(function () {
                 Ext.define('CustomApp', {
     extend: 'Rally.app.App',
     componentCls: 'app',
-    launch: function() {
-        var panel = Ext.create('Ext.panel.Panel',{
-            items:[
+    launch: function () {
+        var panel = Ext.create('Ext.panel.Panel', {
+            items: [
                 {
                     xtype: 'rallyprojectpicker',
                     fieldLabel: 'select project',
-                    itemId:'proj',
+                    itemId: 'proj',
                     margin: 10,
-                    workspace:  this.getContext().getWorkspace()._ref, //limit choices to the current workspace
+                    workspace: this.getContext().getWorkspace()._ref, //limit choices to the current workspace
                     value: this.getContext().getProject(),
-                    listeners:{
+                    listeners: {
                         change: this._onProjectSelected,
                         scope: this
                     }
@@ -28,12 +31,12 @@
                 {
                     xtype: 'container',
                     itemId: 'gridContainer'
-                } 
+                }
             ]
         });
         this.add(panel);
     },
-    _onProjectSelected: function() {
+    _onProjectSelected: function () {
         if (this.down('rallygrid')) {
             Ext.ComponentQuery.query('#gridContainer')[0].remove(Ext.ComponentQuery.query('#milestoneGrid')[0], true);
         }
@@ -51,7 +54,7 @@
             }
         });
     },
-     _getProjectFilter: function() {
+    _getProjectFilter: function () {
         return {
             property: 'TargetProject',
             operator: '=',
@@ -63,18 +66,17 @@
 
             Rally.launchApp('CustomApp', {
                 name:"Milestones by Project",
-	            parentRepos:""
+                parentRepos:"",
+                version:"0.1.1"
             });
 
         });
     </script>
 
 
-    <style type="text/css">
-        .app {
-  /* Add app styles here */
-}
 
+    <style type="text/css">
+        
     </style>
 </head>
 <body>

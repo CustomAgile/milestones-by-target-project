@@ -8,5 +8,6 @@
    ],
    "css": [
       "app.css"
-   ]
+   ],
+   "templates": "./templates"
 }

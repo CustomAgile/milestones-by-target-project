@@ -1,17 +1,17 @@
 Ext.define('CustomApp', {
     extend: 'Rally.app.App',
     componentCls: 'app',
-    launch: function() {
-        var panel = Ext.create('Ext.panel.Panel',{
-            items:[
+    launch: function () {
+        var panel = Ext.create('Ext.panel.Panel', {
+            items: [
                 {
                     xtype: 'rallyprojectpicker',
                     fieldLabel: 'select project',
-                    itemId:'proj',
+                    itemId: 'proj',
                     margin: 10,
-                    workspace:  this.getContext().getWorkspace()._ref, //limit choices to the current workspace
+                    workspace: this.getContext().getWorkspace()._ref, //limit choices to the current workspace
                     value: this.getContext().getProject(),
-                    listeners:{
+                    listeners: {
                         change: this._onProjectSelected,
                         scope: this
                     }
@@ -19,12 +19,12 @@ Ext.define('CustomApp', {
                 {
                     xtype: 'container',
                     itemId: 'gridContainer'
-                } 
+                }
             ]
         });
         this.add(panel);
     },
-    _onProjectSelected: function() {
+    _onProjectSelected: function () {
         if (this.down('rallygrid')) {
             Ext.ComponentQuery.query('#gridContainer')[0].remove(Ext.ComponentQuery.query('#milestoneGrid')[0], true);
         }
@@ -42,7 +42,7 @@ Ext.define('CustomApp', {
             }
         });
     },
-     _getProjectFilter: function() {
+    _getProjectFilter: function () {
         return {
             property: 'TargetProject',
             operator: '=',
