@@ -4,10 +4,15 @@
    "server": "https://rally1.rallydev.com",
    "sdk": "2.0",
    "javascript": [
-      "App.js"
+      "src/js/util/customagile-multiselect-timebox.js",
+      "src/js/util/customagile-multiselect-project.js",
+      "src/js/util/customagile-pill-picker.js",
+      "src/js/util/project-picker.js",
+      "src/js/util/summary-grid-popover.js",
+      "src/js/App.js"
    ],
    "css": [
-      "app.css"
+      "src/style/app.css"
    ],
    "templates": "./templates"
 }

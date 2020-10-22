@@ -1,0 +1,10 @@
+.grid-link {
+  color: #337ec6;
+  cursor: pointer;
+}
+
+.x-form-item-label {
+  font-family: "Open Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+  color: #58606e !important;
+  font-size: 14px !important;
+}
